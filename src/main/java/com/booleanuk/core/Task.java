@@ -9,7 +9,7 @@ public class Task {
         this.complete = false;
     }
 
-    public void changeStatus() {
-
+    public void changeStatus(boolean status) {
+        complete = status;
     }
 }

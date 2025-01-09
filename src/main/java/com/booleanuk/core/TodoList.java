@@ -1,5 +1,11 @@
 package com.booleanuk.core;
 
-public class TodoList {
+import java.util.ArrayList;
 
+public class TodoList {
+    ArrayList<Task> tasks = new ArrayList<>();
+
+    public boolean add(Task task) {
+        return true;
+    }
 }

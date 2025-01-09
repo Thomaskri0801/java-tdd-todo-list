@@ -14,10 +14,9 @@ class TodoListTest {
     @Test
     public void addingTask() {
         TodoList todoList = new TodoList();
-        Task task = new Task();
-        String name = "Take out the garbage";
-        boolean complete = false;
+        Task task = new Task("Take out the garbage");
+        task.complete = false;
 
-
+        Assertions.assertTrue(todoList.add(task));
     }
 }
