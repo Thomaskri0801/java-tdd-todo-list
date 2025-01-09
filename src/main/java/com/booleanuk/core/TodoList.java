@@ -6,6 +6,19 @@ public class TodoList {
     ArrayList<Task> tasks = new ArrayList<>();
 
     public boolean add(Task task) {
-        return true;
+        if(tasks.contains(task)) {
+            return false;
+        } else {
+            tasks.add(task);
+            return true;
+        }
+    }
+
+    public ArrayList<Task> viewTasks() {
+        return tasks;
+    }
+
+    public ArrayList<Task> viewIncompleteTasks() {
+        return tasks;
     }
 }
