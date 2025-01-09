@@ -46,4 +46,9 @@ public class TodoList {
         return null;
     }
 
+    public void remove (Task task) {
+        if(tasks.contains(task)) {
+            tasks.remove(task);
+        }
+    }
 }

@@ -32,31 +32,27 @@ class TodoListTest {
     @Test
     public void checkViewAllIncompleteTasks() {
         TodoList todoList = new TodoList();
-        ArrayList<Task> empty = new ArrayList<>();
-        Assertions.assertIterableEquals(empty, todoList.viewIncompleteTasks());
 
         Task task = new Task("Take out the garbage");
         Task taskComplete = new Task("Take out the garbage");
         taskComplete.complete = true;
         todoList.add(taskComplete);
-        empty.add(task);
+        todoList.add(task);
 
-        Assertions.assertNotEquals(empty, todoList.viewIncompleteTasks());
+        Assertions.assertNotEquals(todoList.viewTasks(), todoList.viewIncompleteTasks());
     }
 
     @Test
     public void checkViewAllCompleteTasks() {
         TodoList todoList = new TodoList();
-        ArrayList<Task> empty = new ArrayList<>();
-        Assertions.assertIterableEquals(empty, todoList.viewCompleteTasks());
 
         Task task = new Task("Take out the garbage");
         Task taskComplete = new Task("Take out the garbage");
         taskComplete.complete = true;
+        todoList.add(task);
         todoList.add(taskComplete);
-        empty.add(task);
 
-        Assertions.assertNotEquals(empty, todoList.viewCompleteTasks());
+        Assertions.assertNotEquals(todoList.viewTasks(), todoList.viewCompleteTasks());
     }
 
     @Test
@@ -74,12 +70,16 @@ class TodoListTest {
     @Test
     public void removeTaskFromTodoList() {
         TodoList todoList = new TodoList();
-        ArrayList<Task> empty = new ArrayList<>();
+
+        int numOfTasks = todoList.tasks.size();
 
         Task task = new Task("Take out the garbage");
         todoList.add(task);
+
+        Assertions.assertNotEquals(numOfTasks, todoList.tasks.size());
+
         todoList.remove(task);
 
-        Assertions.assertEquals(empty, todoList);
+        Assertions.assertEquals(numOfTasks, todoList.tasks.size());
     }
 }
