@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
 
 public class TodoList {
     ArrayList<Task> tasks = new ArrayList<>();
@@ -58,6 +60,15 @@ public class TodoList {
             result.add(tasks.get(i).name);
         }
         result.sort(null);
+        return result;
+    }
+
+    public ArrayList<String> viewAlphabeticalDesc() {
+        ArrayList<String> result = new ArrayList<>();
+        for (int i = 0; i < tasks.size(); i++) {
+            result.add(tasks.get(i).name);
+        }
+        result.sort(Comparator.reverseOrder());
         return result;
     }
 }

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 class TodoListTest {
 
@@ -86,18 +87,33 @@ class TodoListTest {
     @Test
     public void viewTasksAlphabeticallyAsc() {
         TodoList todoList = new TodoList();
+        ArrayList<Task> testTaskList = new ArrayList<>();
+        ArrayList<String> alphabeticalAsc = new ArrayList<>();
 
         Task task = new Task("A");
         Task task2 = new Task("Z");
-        Task task3 = new Task("C");
+        Task task3 = new Task("D");
 
         todoList.add(task);
         todoList.add(task2);
         todoList.add(task3);
 
+        testTaskList.add(task);
+        testTaskList.add(task2);
+        testTaskList.add(task3);
 
+        for(int i = 0; i < testTaskList.size(); i++) {
+            alphabeticalAsc.add(testTaskList.get(i).name);
+        }
 
-        Assertions.assertNotEquals(todoList.viewTasks(), todoList.viewAlphabeticalAsc());
+        alphabeticalAsc.sort(null);
+
+        Assertions.assertEquals(alphabeticalAsc, todoList.viewAlphabeticalAsc());
+    }
+
+    @Test
+    public void viewTasksAlphabeticallyDesc() {
+        
     }
 
 }
