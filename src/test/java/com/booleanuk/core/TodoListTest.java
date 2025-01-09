@@ -113,7 +113,29 @@ class TodoListTest {
 
     @Test
     public void viewTasksAlphabeticallyDesc() {
-        
+        TodoList todoList = new TodoList();
+        ArrayList<Task> testTaskList = new ArrayList<>();
+        ArrayList<String> alphabeticalAsc = new ArrayList<>();
+
+        Task task = new Task("A");
+        Task task2 = new Task("Z");
+        Task task3 = new Task("D");
+
+        todoList.add(task);
+        todoList.add(task2);
+        todoList.add(task3);
+
+        testTaskList.add(task);
+        testTaskList.add(task2);
+        testTaskList.add(task3);
+
+        for(int i = 0; i < testTaskList.size(); i++) {
+            alphabeticalAsc.add(testTaskList.get(i).name);
+        }
+
+        alphabeticalAsc.sort(Comparator.reverseOrder());
+
+        Assertions.assertEquals(alphabeticalAsc, todoList.viewAlphabeticalDesc());
     }
 
 }
