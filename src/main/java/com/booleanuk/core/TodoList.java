@@ -38,4 +38,12 @@ public class TodoList {
         return result;
     }
 
+    public Task search(Task task) {
+        if(tasks.contains(task)) {
+          return task;
+        }
+        System.out.println("The task was not found!");
+        return null;
+    }
+
 }
