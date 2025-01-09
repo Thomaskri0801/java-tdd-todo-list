@@ -19,6 +19,23 @@ public class TodoList {
     }
 
     public ArrayList<Task> viewIncompleteTasks() {
-        return tasks;
+        ArrayList<Task> result = new ArrayList<>();
+        for (int i = 0; i < tasks.size(); i++) {
+            if(!tasks.get(i).complete) {
+                result.add(tasks.get(i));
+            }
+        }
+        return result;
     }
+
+    public ArrayList<Task> viewCompleteTasks() {
+        ArrayList<Task> result = new ArrayList<>();
+        for (int i = 0; i < tasks.size(); i++) {
+            if(tasks.get(i).complete) {
+                result.add(tasks.get(i));
+            }
+        }
+        return result;
+    }
+
 }

@@ -37,11 +37,25 @@ class TodoListTest {
 
         Task task = new Task("Take out the garbage");
         Task taskComplete = new Task("Take out the garbage");
-        task.complete = true;
-        todoList.add(task);
+        taskComplete.complete = true;
         todoList.add(taskComplete);
         empty.add(task);
 
-        Assertions.assertIterableEquals(empty, todoList.viewIncompleteTasks());
+        Assertions.assertNotEquals(empty, todoList.viewIncompleteTasks());
+    }
+
+    @Test
+    public void checkViewAllCompleteTasks() {
+        TodoList todoList = new TodoList();
+        ArrayList<Task> empty = new ArrayList<>();
+        Assertions.assertIterableEquals(empty, todoList.viewCompleteTasks());
+
+        Task task = new Task("Take out the garbage");
+        Task taskComplete = new Task("Take out the garbage");
+        taskComplete.complete = true;
+        todoList.add(taskComplete);
+        empty.add(task);
+
+        Assertions.assertNotEquals(empty, todoList.viewCompleteTasks());
     }
 }
