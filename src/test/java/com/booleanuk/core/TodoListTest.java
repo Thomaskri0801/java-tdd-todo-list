@@ -82,4 +82,22 @@ class TodoListTest {
 
         Assertions.assertEquals(numOfTasks, todoList.tasks.size());
     }
+
+    @Test
+    public void viewTasksAlphabeticallyAsc() {
+        TodoList todoList = new TodoList();
+
+        Task task = new Task("A");
+        Task task2 = new Task("Z");
+        Task task3 = new Task("C");
+
+        todoList.add(task);
+        todoList.add(task2);
+        todoList.add(task3);
+
+
+
+        Assertions.assertNotEquals(todoList.viewTasks(), todoList.viewAlphabeticalAsc());
+    }
+
 }

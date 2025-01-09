@@ -51,4 +51,13 @@ public class TodoList {
             tasks.remove(task);
         }
     }
+
+    public ArrayList<String> viewAlphabeticalAsc() {
+        ArrayList<String> result = new ArrayList<>();
+        for (int i = 0; i < tasks.size(); i++) {
+            result.add(tasks.get(i).name);
+        }
+        result.sort(null);
+        return result;
+    }
 }
