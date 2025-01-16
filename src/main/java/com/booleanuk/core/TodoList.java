@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Comparator;
 
 public class TodoList {
-    ArrayList<Task> tasks = new ArrayList<>();
+    private ArrayList<Task> tasks = new ArrayList<>();
 
     public boolean add(Task task) {
         if(tasks.contains(task)) {
@@ -23,7 +23,7 @@ public class TodoList {
     public ArrayList<Task> viewIncompleteTasks() {
         ArrayList<Task> result = new ArrayList<>();
         for (int i = 0; i < tasks.size(); i++) {
-            if(!tasks.get(i).complete) {
+            if(!tasks.get(i).isComplete()) {
                 result.add(tasks.get(i));
             }
         }
@@ -33,7 +33,7 @@ public class TodoList {
     public ArrayList<Task> viewCompleteTasks() {
         ArrayList<Task> result = new ArrayList<>();
         for (int i = 0; i < tasks.size(); i++) {
-            if(tasks.get(i).complete) {
+            if(tasks.get(i).isComplete()) {
                 result.add(tasks.get(i));
             }
         }
@@ -57,7 +57,7 @@ public class TodoList {
     public ArrayList<String> viewAlphabeticalAsc() {
         ArrayList<String> result = new ArrayList<>();
         for (int i = 0; i < tasks.size(); i++) {
-            result.add(tasks.get(i).name);
+            result.add(tasks.get(i).getName());
         }
         result.sort(null);
         return result;
@@ -66,7 +66,7 @@ public class TodoList {
     public ArrayList<String> viewAlphabeticalDesc() {
         ArrayList<String> result = new ArrayList<>();
         for (int i = 0; i < tasks.size(); i++) {
-            result.add(tasks.get(i).name);
+            result.add(tasks.get(i).getName());
         }
         result.sort(Comparator.reverseOrder());
         return result;

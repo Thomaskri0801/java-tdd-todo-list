@@ -9,9 +9,9 @@ public class TaskTest {
     public void statusChanged() {
         Task task = new Task("Take out the garbage");
         task.changeStatus(true);
-        Assertions.assertTrue(task.complete);
+        Assertions.assertTrue(task.isComplete());
 
         task.changeStatus(false);
-        Assertions.assertFalse(task.complete);
+        Assertions.assertFalse(task.isComplete());
     }
 }

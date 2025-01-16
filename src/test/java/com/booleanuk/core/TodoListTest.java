@@ -36,7 +36,7 @@ class TodoListTest {
 
         Task task = new Task("Take out the garbage");
         Task taskComplete = new Task("Take out the garbage");
-        taskComplete.complete = true;
+        taskComplete.setComplete(true);
         todoList.add(taskComplete);
         todoList.add(task);
 
@@ -49,7 +49,7 @@ class TodoListTest {
 
         Task task = new Task("Take out the garbage");
         Task taskComplete = new Task("Take out the garbage");
-        taskComplete.complete = true;
+        taskComplete.setComplete(true);
         todoList.add(task);
         todoList.add(taskComplete);
 
@@ -72,16 +72,16 @@ class TodoListTest {
     public void removeTaskFromTodoList() {
         TodoList todoList = new TodoList();
 
-        int numOfTasks = todoList.tasks.size();
+        int numOfTasks = todoList.viewTasks().size();
 
         Task task = new Task("Take out the garbage");
         todoList.add(task);
 
-        Assertions.assertNotEquals(numOfTasks, todoList.tasks.size());
+        Assertions.assertNotEquals(numOfTasks, todoList.viewTasks().size());
 
         todoList.remove(task);
 
-        Assertions.assertEquals(numOfTasks, todoList.tasks.size());
+        Assertions.assertEquals(numOfTasks, todoList.viewTasks().size());
     }
 
     @Test
@@ -103,7 +103,7 @@ class TodoListTest {
         testTaskList.add(task3);
 
         for(int i = 0; i < testTaskList.size(); i++) {
-            alphabeticalAsc.add(testTaskList.get(i).name);
+            alphabeticalAsc.add(testTaskList.get(i).getName());
         }
 
         alphabeticalAsc.sort(null);
@@ -130,7 +130,7 @@ class TodoListTest {
         testTaskList.add(task3);
 
         for(int i = 0; i < testTaskList.size(); i++) {
-            alphabeticalAsc.add(testTaskList.get(i).name);
+            alphabeticalAsc.add(testTaskList.get(i).getName());
         }
 
         alphabeticalAsc.sort(Comparator.reverseOrder());
